@@ -1,49 +1,25 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
+/* ... (CSS dasar seperti sebelumnya) ... */
+
+#search-bar {
+    display: flex;
+    margin-bottom: 20px;
 }
 
-header {
+#search-keyword {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#search-category {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#search-button {
+    padding: 10px 20px;
     background-color: #007bff;
     color: white;
-    padding: 1rem;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav li {
-    display: inline;
-    margin: 0 10px;
-}
-
-main {
-    padding: 20px;
-}
-
-.content-list {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.content-item {
-    width: 200px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
-.content-item img {
-    max-width: 100%;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    text-align: center;
+    border: none;
+    cursor: pointer;
 }
