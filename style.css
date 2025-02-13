@@ -1,30 +1,49 @@
-/* ... (style CSS sebelumnya) ... */
-
-/* Tambahkan style untuk elemen-elemen baru */
-.addon-item {
-    /* ... (style sebelumnya) ... */
-    display: flex; /* Menggunakan flexbox untuk mengatur tata letak */
-    flex-direction: column; /* Mengatur item agar ditampilkan dalam kolom */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.addon-item img {
-    /* ... (style sebelumnya) ... */
-    order: -1; /* Memindahkan gambar ke atas */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+    text-align: center;
 }
 
-.addon-item .addon-details {
-    flex-grow: 1; /* Membiarkan detail addon mengisi ruang yang tersisa */
+nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-.addon-item h3 {
-    margin-bottom: 5px;
+nav li {
+    display: inline;
+    margin: 0 10px;
 }
 
-.addon-item p {
-    margin-bottom: 10px;
+main {
+    padding: 20px;
 }
 
-.addon-item a {
-    /* ... (style sebelumnya) ... */
-    align-self: flex-end; /* Memindahkan tombol "Unduh" ke kanan bawah */
+.content-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-item {
+    width: 200px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.content-item img {
+    max-width: 100%;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
 }
