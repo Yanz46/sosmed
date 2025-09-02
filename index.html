@@ -1,51 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="id">
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-      rel="stylesheet">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-      />
-    <title>Deacode LinkTree</title>
-  </head>
-  <body>
-    <div class="container animate__animated animate__zoomIn">
-      <!-- profile picture -->
-      <div class="profile">
-        <img src="profile.jpg" alt="error image" class="animate__animated
-          animate__pulse animate__infinite" />
-        <p class="animate__animated animate__fadeInDownBig">YanMC_Official</p>
-      </div>
+    <title>Bio Link</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #667eea;
+            margin: 0 auto 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .profile-bio {
+            color: #718096;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-3px);
+            border-color: #667eea;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.15);
+        }
+        
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .link-button:hover::before {
+            left: 100%;
+        }
+        
+        .link-icon {
+            margin-right: 12px;
+            font-size: 1.2rem;
+            color: #667eea;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            text-decoration: none;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: #667eea;
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+            }
+        }
+        
+        .visitor-count {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="profile-section">
+                <div class="pulse" style="display: inline-block; margin-bottom: 20px;">
+                    <img 
+                        src="yan.jpeg" 
+                        alt="Professional headshot of a confident individual with a welcoming smile, wearing business casual attire against a soft background" 
+                        class="profile-image"
+                    >
+                </div>
+                <h1 class="profile-name">@YanMC</h1>
+                <p class="profile-bio">
+                    follow all my channels
+                </p>
+                
+                <div class="visitor-count">
+                    <i class="fas fa-eye me-2"></i>
+                    <span id="visitorCount">997</span> Visitors
+                </div>
+            </div>
+            
+            <div class="links-section">
 
-      <!-- link tree button -->
-      <div class="link">
-        <a href="https://www.instagram.com/mc_official_real_1?igsh=MTk3eGFsMGt6ZHA0dA==" target="_blank"
-          class="animate__animated animate__bounceInLeft">instagram</a>
-        <a href="https://t.me/Yanzzxyou" target="_blank" class="animate__animated
-          animate__bounceInLeft animate__delay-1s">telegram</a>
-        <a href="https://discord.gg/VK2pGXFF" target="_blank" class="animate__animated
-          animate__bounceInLeft animate__delay-2s">discord</a>
-          <a href="https://whatsapp.com/channel/0029Vai1WDL05MUl6RIZ7W1K" target="_blank" class="animate__animated
-          animate__bounceInLeft animate__delay-3s">whatsapp</a>
-        <a href="https://www.youtube.com/@YanMC_Official" target="_blank"
-          class="animate__animated animate__bounceInLeft animate__delay-4s">youtube</a>
-          <a href="https://saweria.co/shipudhen" target="_blank" class="animate__animated
-          animate__bounceInLeft animate__delay-5s">Request VIP</a>
-      </div>
+                 <a href="https://saweria.co/YanMC" class="link-button">
+                    <i class="link-icon fas fa-envelope"></i>
+                    Saweria
+                </a>
 
-      <!-- footer -->
-      <div class="footer animate__animated animate__bounceInUp
-        animate__delay-6s">
-        <i>follow_our_channel🥰</i>
-      </div>
+                <a href="https://lynk.id/yanzmc" class="link-button">
+                    <i class="link-icon fas fa-calendar"></i>
+                    Toko Yanmc
+                </a>
+
+                <a href="https://whatsapp.com/channel/0029VazawzYLY6d1sTb9kl0a" class="link-button">
+                    <i class="link-icon fab fa-whatsapp"></i>
+                    Saluran Whatsapp
+                </a>
+                
+                <a href="https://www.tiktok.com/@yanmc_official" class="link-button">
+                    <i class="link-icon fab fa-tiktok"></i>
+                    TikTok
+                </a>
+                
+                <a href="https://www.youtube.com/@YanMC_Official" class="link-button">
+                    <i class="link-icon fab fa-youtube"></i>
+                    youtube
+                </a>
+                
+                <a href="https://www.instagram.com/yanmc_official?igsh=MTk3eGFsMGt6ZHA0dA==" class="link-button">
+                    <i class="link-icon fab fa-instagram"></i>
+                    Instagram
+                </a>
+        
+            </div>
+            
+            <div class="social-links">
+                <a href="https://whatsapp.com/channel/0029VazawzYLY6d1sTb9kl0a" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/yanmc_official?igsh=MTk3eGFsMGt6ZHA0dA==" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://saweria.co/YanMC" class="social-link">
+                    <i class="fas fa-file-alt"></i>
+                </a>
+                <a href="https://www.youtube.com/@YanMC_Official" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/@yanmc_official" class="social-link">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Bio Link | @yanmc ❤️</p>
+        </div>
     </div>
-  </body>
+
+    <script>
+        // Visitor counter
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
+        visitorCount = parseInt(visitorCount) + 1;
+        localStorage.setItem('visitorCount', visitorCount);
+        document.getElementById('visitorCount').textContent = visitorCount;
+        
+        // Smooth scroll and animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.link-button');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Add click animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                    
+                    // Simulate link opening (in real implementation, remove this and add actual href)
+                    setTimeout(() => {
+                        alert('This link would open: ' + this.textContent.trim());
+                    }, 300);
+                });
+            });
+            
+            // Add typing animation effect to bio text
+            const bioText = "follow all my channels.";
+            const bioElement = document.querySelector('.profile-bio');
+            let charIndex = 0;
+            
+            function typeWriter() {
+                if (charIndex < bioText.length) {
+                    bioElement.textContent += bioText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Start typing animation after a delay
+            setTimeout(() => {
+                bioElement.textContent = '';
+                typeWriter();
+            }, 1000);
+        });
+        
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', function(e) {
+            const card = document.querySelector('.card');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+    </script>
+</body>
 </html>
+
