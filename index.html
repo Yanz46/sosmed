@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Video Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 TikTok Video Downloader</h1>
+        <p>Masukkan tautan video TikTok di bawah ini:</p>
+        
+        <div class="input-group">
+            <input type="text" id="tiktokUrl" placeholder="Contoh: https://vt.tiktok.com/ZSfQUMuvL/" required>
+            <button id="downloadButton">Unduh</button>
+        </div>
+
+        <div id="message" class="hidden"></div>
+        
+        <div id="videoResult" class="hidden">
+            <h3>Hasil Unduhan</h3>
+            <p>Klik tombol di bawah untuk mengunduh video tanpa watermark.</p>
+            <div id="downloadLinks">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
